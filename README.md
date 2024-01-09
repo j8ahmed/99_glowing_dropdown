@@ -1,3 +1,31 @@
+# Jackie's Pet Store - CodePen - The Most Hearted Pens of 2023
+
+## Screenshot Of The Original Design By: Jackie Zen
+
+![Original Design](./designs/screenshot.jpg)
+
+## Screenshot Of My Version:
+
+![My Skeleton U.I.](./designs/screenshot2.jpg)
+
+
+## Features
+
+```
+[ ] Single page application (SPA) - Landing page
+[ ] Nav Menu
+    [ ] Hover sub menus
+[ ] 
+[ ] 
+[ ] 
+
+```
+
+## Bugs / Fixes
+
+
+--- 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +96,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+---
+
+## Meta Data
+
+Started On: 2024-01-09
+
+### References:
+
+- [Inspiration - CodePen - Responsive Dashboard | Bento Style - Ecem Gokdogan](https://codepen.io/jackiezen/pen/oNJMOvZ?editors=0010)
+- [Fontawesome for the icons](https://fontawesome.com/icons/)
+- [Favicon Generator](https://www.favicon-generator.org/)
+- []()
