@@ -1,0 +1,42 @@
+/* Page Footer Styles */
+
+@use "../../assets/theme" as *;
+
+footer#page-footer{
+    padding: 16px;
+    background: $theme_brown;
+    color: $theme_white;
+    div.links-container{
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        .footer-link{
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: $theme_white;
+            text-decoration: none;
+            svg.icon {
+                width: 16px;
+                height: 16px;
+                path{
+                    fill: $theme_white;
+                }
+            }
+            &:hover{
+                color: $theme_pink;
+                svg.icon path{
+                    fill: $theme_pink;
+                }
+                &#j8ahmed-link{
+                    color: $theme_teal;
+                    svg.icon path{
+                        fill: $theme_teal;
+                    }
+                }
+            }
+        }
+    }
+}

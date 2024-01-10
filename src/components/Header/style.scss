@@ -1,0 +1,12 @@
+/* Page Header Styles */
+
+@use "../../assets/theme" as *;
+
+header#notice-header{
+    padding: 8px 16px;
+    background: $theme_peach;
+    color: $theme_white;
+    h4{
+        margin: 0;
+    }
+}
