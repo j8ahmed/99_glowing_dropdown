@@ -23,6 +23,22 @@
 
 ## Bugs / Fixes
 
+### Using Logical `AND` (`&&`) and `OR` (`||`) in React Rendering
+
+I was running into an issue where values that should be truthy were coming up falsey and vice versa. Looked into it and found two useful pieces of information. 
+
+1. React renders any value with a type of `string` or `number` regardless of whether it's falsey. So in a scenario when we want to use the length of an array as the first value in an `AND` statement, React would still render a length of `0` when the array is empty. Therefore, we need to explicitly cast the array length value as a boolean value using a double bang (`!!`), the `Boolean(value)` constructor, or use a ternary operator instead of a Logical `AND`. React does not render values of type `boolean`, `null`, or `undefined`. - [Reference Stack Overflow](https://stackoverflow.com/questions/53048037/react-showing-0-instead-of-nothing-with-short-circuit-conditional-component)
+
+2. JavaScript does not automatically convert "truthy" values to `true` in a `==` comparison. For example, in JavaScript an empty array (`[]`) is considered a "truthy" value but a statement like `[] == true` will return `false`. You need to explicitly cast the array as a boolean before running the comparison operation to get the correct value - for example:
+
+```js
+console.log(Boolean([]) == true)        // Output: true
+console.log(!![] == true)               // Output: true
+```
+
+- ["falsey" and "truthy" values in JavaScript - MDN Docs](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+- [2 Ways to Convert Values to Boolean in JavaScript - article](https://www.samanthaming.com/tidbits/19-2-ways-to-convert-to-boolean/) 
+- [Consider When and Where logical operators should be used to render React components - Stack Overflow](https://stackoverflow.com/questions/65713434/react-render-logical-vs-ternary-operator)
 
 --- 
 

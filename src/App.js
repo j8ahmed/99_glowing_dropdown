@@ -1,13 +1,12 @@
 import './App.css';
 import { Header, Footer } from "./components"
+import { HomePage } from "./pages"
 
 export default function App() {
     return (
         <div className="App">
             <Header />
-            <header className="App-header">
-                <h1>Hello World</h1>
-            </header>
+            <HomePage />
             <Footer />
         </div>
     );
