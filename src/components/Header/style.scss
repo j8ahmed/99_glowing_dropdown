@@ -5,6 +5,10 @@
 $header_height:  64px;
 
 header#main-header{
+    @media (min-width: 800px){
+        position: sticky;
+    }
+    top: 0;
     svg.icon{
         width: 16px;
         height: auto;
@@ -31,6 +35,7 @@ header#main-header{
         justify-content: space-between;
         align-items: center;
         gap: 16px;
+        background: $theme_white;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         @media (max-width: 500px){
             padding: 16px;

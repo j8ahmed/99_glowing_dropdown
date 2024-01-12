@@ -1,7 +1,125 @@
-/* Page Footer Styles */
+/* HomePage Styles */
 
 @use "../../assets/theme" as *;
 
 main#homepage-container{
     min-height: 80vh;
+    section.hero{
+        width: 100%;
+        padding: 32px 16px;
+        @media (min-width: 800px){
+            padding: 64px 32px;
+        }
+        @media (min-width: 1200px){
+            padding: 64px;
+        }
+        //min-height: 80vh;
+        background: $theme_pink url('https://ouch-cdn2.icons8.com/hxxz5Qr551KY1597yq-mz9zWRTkAT-cob5eZ8UreBBo/rs:fit:368:338/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzcy/L2UxYjU4YWUwLTc3/YjQtNGQ1OC05NjJl/LWUzODQ1Y2IyYzBi/Ny5wbmc.png') no-repeat center right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        grid-gap: 48px;
+        display: inline-flex;
+        background-position: 90% 70%;
+        @media (max-width: 800px){
+            background-position: 50vw 100%;
+        }
+        h1{
+            text-align: left;
+            font-size: 56px;
+            font-weight: 600;
+            color: $theme-brown;
+            width: 50%;
+            @media (max-width: 500px){
+                font-size: 48px;
+                width: 80%;
+            }
+            @media (min-width: 500px){
+                width: 60%;
+            }
+            span{
+                white-space: nowrap;
+            }
+        }
+        .btn-group{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            @media (max-width: 600px){
+                flex-direction: column;
+            }
+        }
+    }
 }
+
+button {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 12px 24px;
+    border-radius: 48px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        color: $theme_white;
+        border: 2px solid $theme_peach;
+        background: $theme_peach;
+        transition: $transition;
+        box-shadow: $box_shadow;
+        svg path{
+            fill: $theme_white;
+            transition: $transition;
+        }
+    }
+    &.btn-outline-light{
+        background: none;
+        color: $theme_white;
+        border: 2px solid $theme_white;
+        &:hover {
+            background: $theme_white;
+            border: 2px solid $theme_white;
+            color: $theme_brown;
+            svg path{
+                fill: $theme_brown;
+            }
+        }
+    }
+    &.btn-outline-dark {
+        color: $theme_brown;
+        background: none;
+        border: 2px solid $theme_brown;
+        &:hover {
+            color: $theme_white;
+            background: $theme_peach;
+            border: 2px solid $theme_peach;
+            svg path{
+                fill: $theme_white;
+            }
+        }
+    }
+    &.btn-filled-dark {
+        color: $theme_white;
+        background: $theme_brown;
+        border: 2px solid $theme_brown;
+        svg path{
+            fill: $theme_white;
+        }
+        &:hover {
+            color: $theme_white;
+            background: $theme_peach;
+            border: 2px solid $theme_peach;
+            svg path{
+                fill: $theme_white;
+            }
+        }
+    }
+}
+
+
+
+
+
