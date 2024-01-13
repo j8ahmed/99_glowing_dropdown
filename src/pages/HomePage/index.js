@@ -1,5 +1,54 @@
 import './style.scss';
 
+const products = [
+    {
+        category: "dogs",
+        image: "https://ouch-cdn2.icons8.com/5ccPOQq69UKQcbmXfjvOScfFc9NXKG0Xu6DPNQ8b0f8/rs:fit:368:247/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTEw/LzFlODdiYzcyLTBl/OWEtNDFlNS05N2Ey/LTMzYTA4MDQ5MWU1/OC5wbmc.png",
+        fill: "light",
+        themeColor: "linear-gradient(45deg, #463631 0%, #976C5B 100%)",
+        textColor: "var(--theme-white)",
+        subcategories: ["Food & Treats", "Toys", "Beds & Furniture", "Outdoor Supplies", "Clothing"],
+    },
+    {
+        category: "cats",
+        image: "https://ouch-cdn2.icons8.com/RjiKOF2gGKiIVnIMFi0O1a4aU7DoHfhbkXr2JbUYZ3A/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzEy/LzliNDQ3MmVlLWZh/YjMtNDQwNy1iOWVh/LWMwOTdlYWNjNWE3/NS5wbmc.png",
+        fill: "dark",
+        themeColor: "linear-gradient(45deg, #F6AE6C 0%, #ECBD73 100%)",
+        textColor: "var(--theme-brown)",
+        subcategories: ["Food & Treats", "Toys", "Beds & Furniture"],
+    },
+    {
+        category: "birds",
+        image: "https://ouch-cdn2.icons8.com/DF-XRInvbvWS9fQSpWc_SegC3meXZK8BmE-PjrdrF3Q/rs:fit:368:396/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzI3/LzQyYWIyNzliLWJj/ZDgtNGEyMC04MGRi/LTk3MzU4YWFmNTVk/OS5wbmc.png",
+        fill: "dark",
+        themeColor: "linear-gradient(45deg, #EFEFEF 0%, #F2F2F2 100%)",
+        textColor: "var(--theme-brown)",
+        subcategories: ["Food & Treats", "Toys", "Furniture"],
+    },
+    {
+        category: "fish",
+        image: "https://ouch-cdn2.icons8.com/41Pv7w9rcbn7II_gB2vwvVCQRYE5mvpca1ZbsvMujR0/rs:fit:368:368/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjE5/LzRlZjE1YTgyLTI3/NjYtNDlkNC1hMGE3/LWY4ZjRmNzhjM2M5/NS5wbmc.png",
+        fill: "light",
+        themeColor: "linear-gradient(45deg, #1E4782 0%, #709DDF 100%)",
+        textColor: "var(--theme-white)",
+        subcategories: ["Food", "Aquariums", "Rocks & Decorations"],
+    },
+        ];
+
+
+const services = [
+    {
+        category: "grooming",
+        image: "https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png",
+        themeColor: "linear-gradient(45deg, #45828C 0%, #A7D4D8 100%)",
+    },
+    {
+        category: "boarding",
+        image: "https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png",
+        themeColor: "linear-gradient(45deg, #EDDAA9 0%, #B87D93 100%)",
+    },
+];
+
 export default function HomePage() {
     return (
         <main id="homepage-container">
@@ -22,6 +71,98 @@ export default function HomePage() {
 
                         <span>Book a Service</span>
                     </button>
+                </div>
+            </section>
+
+            <section id="products" className="page-section">
+                <h2>Shop by Pet</h2>
+
+                <ul className="shop-pets">
+                    {
+                        products.map((product, i) => {
+                            const {category, image, fill, themeColor, textColor, subcategories} = product;
+                            const subList = subcategories.map((cat, i) => {
+                                return (
+                                    <li key={cat + i}>
+                                        <a href="#">{cat}</a>
+                                    </li>
+                                )
+                            });
+                            return (
+                                <li key={i} className={`card-large ${fill}`}id="sup-dog" style={{
+                                    background: themeColor,
+                                }}>
+                                    <div className="card-image">
+                                        <img src={image} alt={category + "products"}/>
+                                    </div>
+
+                                    <ul>
+                                        {category}
+                                        {subList}
+
+                                        <button className={`${fill}`}>
+                                            <span>Shop All</span>
+
+                                            <svg id="arrow-icon" className="icon" xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                            </svg>
+                                        </button>
+                                    </ul>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
+            </section>
+        {/*
+            <section>
+                <h2>Our Services</h2>
+
+                <ul class="services">
+                    <li class="card-large card-dark card-wide" id="serv-groom">
+                        <div class="card-image"><img src="https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png"></div>
+                        <ul>
+                            Dog Grooming<span class="subtitle">Tail-wagging transformations are our specialty.</span>
+                            <li><a href="#">Coat Care</a><span>$80</span></li>
+                            <li><a href="#">Nail Care</a><span>$16</span></li>
+                            <li><a href="#">Doggie Deluxe Spa Day</a><span>$160</span></li>
+                            <button class="btn-filled-dark"><span class="material-symbols-outlined">
+                                    calendar_month
+                                </span>Book Now</button>
+
+                        </ul>
+
+
+                    </li>
+                    <li class="card-large card-dark card-wide" id="serv-board">
+                        <div class="card-image"><img src="https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png"></div>
+                        <ul>
+                            Dog Boarding<span class="subtitle">Where fun and care never take a day off.</span>
+                            <li><a href="#">Doggie Daycare</a><span>$80</span></li>
+                            <li><a href="#">Short Term Boarding</a><span>$80</span></li>
+                            <button class="btn-filled-dark"><span class="material-symbols-outlined">
+                                    calendar_month
+                                </span>Book Now</button>
+                        </ul>
+
+                    </li>
+                </ul>
+            </section>
+        */}
+
+            <section id="locate">
+
+                <div>
+                    <h2>Location &amp; Hours</h2>
+                    <p>Our knowledgeable and friendly staff is always ready to assist you in making the best choices for your furry, feathered, or finned friends.</p>
+                    <div className="btn-group">
+                        <button className="btn-filled-dark"><span className="material-symbols-outlined">
+        pin_drop
+        </span>Find a Store</button>
+                        <button className="btn-outline-dark btn-hover-color"><span className="material-symbols-outlined">
+        contact_support
+        </span> Contact Us</button>
+                    </div>
                 </div>
             </section>
         </main>

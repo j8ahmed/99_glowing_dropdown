@@ -4,6 +4,20 @@
 
 main#homepage-container{
     min-height: 80vh;
+    section{
+        max-width: $max_width;
+        margin: auto;
+        padding: 64px 32px;
+        h2{
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-align: center;
+            color: $theme_brown;
+            margin: 0;
+            margin-bottom: 32px;
+        }
+    }
     section.hero{
         width: 100%;
         padding: 32px 16px;
@@ -51,6 +65,82 @@ main#homepage-container{
             }
         }
     }
+    section#products{
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul.shop-pets{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-content: center;
+            gap: 24px;
+            @media(min-width: 1000px){
+                display: flex;
+            }
+            li.card-large{
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                gap: 16px;
+                &.light{
+                    color: $theme_white;
+                }
+                &.dark{
+                    color: $theme_brown;
+                }
+                border-radius: 16px;
+                box-shadow: $shadow;
+                cursor: pointer;
+                transition: $transition;
+                &:hover{
+                    transform: scale(1.01);
+                    box-shadow: $shadow_hover;
+                }
+                div.card-image{
+                    position: relative;
+                    aspect-ratio: 3/2;
+                    img{
+                        width: 80%;
+                        height: 80%;
+                        position: absolute;
+                        object-fit: contain;
+                        inset: 50% 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                ul{
+                    padding: 0 40px 40px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    text-transform: capitalize;
+                    text-align: left;
+                    li{
+                        font-size: 14px;
+                        line-height: 32px;
+                        &:last-of-type{
+                            margin-bottom: 40px;
+                        }
+                        a{
+                            color: inherit;
+                            text-decoration: none;
+                        }
+                    }
+                    button{
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+    }
 }
 
 button {
@@ -69,16 +159,19 @@ button {
         border: 2px solid $theme_peach;
         background: $theme_peach;
         transition: $transition;
-        box-shadow: $box_shadow;
+        box-shadow: $shadow_hover;
         svg path{
             fill: $theme_white;
             transition: $transition;
         }
     }
-    &.btn-outline-light{
+    &.light{
         background: none;
         color: $theme_white;
         border: 2px solid $theme_white;
+        svg path{
+            fill: $theme_white;
+        }
         &:hover {
             background: $theme_white;
             border: 2px solid $theme_white;
@@ -88,7 +181,7 @@ button {
             }
         }
     }
-    &.btn-outline-dark {
+    &.btn-outline-dark{
         color: $theme_brown;
         background: none;
         border: 2px solid $theme_brown;
@@ -96,6 +189,19 @@ button {
             color: $theme_white;
             background: $theme_peach;
             border: 2px solid $theme_peach;
+            svg path{
+                fill: $theme_white;
+            }
+        }
+    }
+    &.dark{
+        color: $theme_brown;
+        background: none;
+        border: 2px solid $theme_brown;
+        &:hover {
+            color: $theme_white;
+            background: $theme_brown;
+            border: 2px solid $theme_brown;
             svg path{
                 fill: $theme_white;
             }

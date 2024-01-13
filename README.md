@@ -40,6 +40,26 @@ console.log(!![] == true)               // Output: true
 - [2 Ways to Convert Values to Boolean in JavaScript - article](https://www.samanthaming.com/tidbits/19-2-ways-to-convert-to-boolean/) 
 - [Consider When and Where logical operators should be used to render React components - Stack Overflow](https://stackoverflow.com/questions/65713434/react-render-logical-vs-ternary-operator)
 
+### Images Were Resizing Perfectly Without a Set Height
+
+This is not necessarily a bug but rather something that was interesting to note from the original code. On the "Shop Products" there are cards with images representing each cateogory of pet products. On large-width screens The cards are in a `flex-container`. The images are perfectly contained to fit in the same size container. This is accomplished through the use of three CSSS properties: 
+
+1. [`flex: 1`- MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+2. [`aspect-ratio: 3/2` - MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
+3. [`object-fit: contain` - MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
+
+By setting the `flex: 1` property value on each flex-item (i.e. card) in the `flex-container` we are actually setting the `flex-grow` property from the default of `0` to `1`. This makes it so that each `flex-item` (i.e. card) has the same width and height because they grow and fill up the space of the `flex-container` at an equal rate. 
+
+When each card has the same height and width the `aspect-ratio` property will size the image container the same on each card.
+
+Finally, with each image container being the same, regardless of the differences in image size, each one will automatically be resized to fit within the container using the `object-fit: contain` property value. This results in the desired look of equal card images.
+
+It took a while for me to figure out what I was missing since I normally don't use the `aspect-ratio` property and I just set a height value manually. This was a frustrating to breakdown but beneficial to go over. Hence the notes on this. lol
+
+### Use `margin-top: auto` to push the Last element to the bottom of the Container
+
+An interesting use case for `margin: auto`. This was used to push the last item (a button) in the card to the bottom regardless of how many bullet points were above. This is an interesting way to accomplish this as in the past I would use `align-items: space-between` or in a grid layout, `align-self: flex-end`. I will keep this approach in my back pocket as it might be useful in the future.
+
 --- 
 
 # Getting Started with Create React App

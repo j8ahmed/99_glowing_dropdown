@@ -5,10 +5,13 @@
 $header_height:  64px;
 
 header#main-header{
+    max-width: $max_width;
+    margin: auto;
     @media (min-width: 800px){
         position: sticky;
+        z-index: 100;
+        top: 0;
     }
-    top: 0;
     svg.icon{
         width: 16px;
         height: auto;
@@ -100,7 +103,7 @@ header#main-header{
                     border-radius: 16px;
                     position: absolute;
                     top: $header_height;
-                    box-shadow: $box_shadow;
+                    box-shadow: $shadow;
                     display: none;
                     /* Hide element by default */
                     visibility: hidden;
@@ -126,7 +129,7 @@ header#main-header{
                             border-radius: 16px;
                             transition: $transition;
                             &:hover{
-                                box-shadow: $box_shadow;
+                                box-shadow: $shadow_hover;
                                 transform: scale(1.01);
                             }
                         }
