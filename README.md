@@ -12,10 +12,10 @@
 ## Features
 
 ```
-[ ] Single page application (SPA) - Landing page
-[ ] Nav Menu
-    [ ] Hover sub menus
-[ ] 
+[x] Single page application built with React (SPA) - Landing page
+[x] Nav Menu (no links work right now - just a demo)
+    [x] Hover sub menus on full width screens
+[x] Responsive (Original was not completely responsive)
 [ ] 
 [ ] 
 
@@ -145,4 +145,7 @@ Started On: 2024-01-09
 - [Inspiration - CodePen - Responsive Dashboard | Bento Style - Ecem Gokdogan](https://codepen.io/jackiezen/pen/oNJMOvZ?editors=0010)
 - [Fontawesome for the icons](https://fontawesome.com/icons/)
 - [Favicon Generator](https://www.favicon-generator.org/)
+- [Color Palette Selector - Coolors.co](https://coolors.co/001524-ff7d00-417b5a-cedfd9-78290f)
+- []()
+- []()
 - []()

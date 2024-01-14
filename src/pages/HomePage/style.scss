@@ -28,7 +28,7 @@ main#homepage-container{
             padding: 64px;
         }
         //min-height: 80vh;
-        background: $theme_pink url('https://ouch-cdn2.icons8.com/hxxz5Qr551KY1597yq-mz9zWRTkAT-cob5eZ8UreBBo/rs:fit:368:338/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzcy/L2UxYjU4YWUwLTc3/YjQtNGQ1OC05NjJl/LWUzODQ1Y2IyYzBi/Ny5wbmc.png') no-repeat center right;
+        background: $theme_green_pale url('https://ouch-cdn2.icons8.com/hxxz5Qr551KY1597yq-mz9zWRTkAT-cob5eZ8UreBBo/rs:fit:368:338/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzcy/L2UxYjU4YWUwLTc3/YjQtNGQ1OC05NjJl/LWUzODQ1Y2IyYzBi/Ny5wbmc.png') no-repeat center right;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -219,7 +219,7 @@ main#homepage-container{
     section#locate{
         & > div{
             padding: 80px 0;
-            background: $theme_pink;
+            background: $theme_green_pale;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -251,7 +251,7 @@ main#homepage-container{
                         fill: $theme_white;
                     }
                     &:hover{
-                        background: $theme_peach;
+                        background: $theme_green;
                     }
                 }
             }
@@ -285,8 +285,8 @@ button {
     cursor: pointer;
     &:hover {
         color: $theme_white;
-        border: 2px solid $theme_peach;
-        background: $theme_peach;
+        border: 2px solid $theme_green;
+        background: $theme_green;
         transition: $transition;
         box-shadow: $shadow_hover;
         svg path{
@@ -316,8 +316,8 @@ button {
         border: 2px solid $theme_brown;
         &:hover {
             color: $theme_white;
-            background: $theme_peach;
-            border: 2px solid $theme_peach;
+            background: $theme_green;
+            border: 2px solid $theme_green;
             svg path{
                 fill: $theme_white;
             }
@@ -345,8 +345,8 @@ button {
         }
         &:hover {
             color: $theme_white;
-            background: $theme_peach;
-            border: 2px solid $theme_peach;
+            background: $theme_green;
+            border: 2px solid $theme_green;
             svg path{
                 fill: $theme_white;
             }

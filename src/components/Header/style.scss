@@ -26,7 +26,7 @@ header#main-header{
     h4#notice-header{
         margin: 0;
         padding: 8px 16px;
-        background: $theme_peach;
+        background: $theme_green;
         color: $theme_white;
     }
 
@@ -54,9 +54,9 @@ header#main-header{
             color: $theme_brown;
             transition: $transition;
             &:hover{
-                color: $theme_peach;
+                color: $theme_green;
                 svg path{
-                    fill: $theme_peach;
+                    fill: $theme_green;
                 }
             }
         }
