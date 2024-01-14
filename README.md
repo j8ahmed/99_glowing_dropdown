@@ -6,7 +6,7 @@
 
 ## Screenshot Of My Version:
 
-![My Skeleton U.I.](./designs/screenshot2.jpg)
+![My Version U.I.](./designs/screenshot-mine.jpg)
 
 
 ## Features
