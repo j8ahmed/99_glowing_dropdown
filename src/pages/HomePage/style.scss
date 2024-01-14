@@ -216,6 +216,47 @@ main#homepage-container{
 
         }
     }
+    section#locate{
+        & > div{
+            padding: 80px 0;
+            background: $theme_pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 0;
+            border-radius: 12px;
+            box-shadow: $shadow;
+            transition: $transition;
+            cursor: pointer;
+            &:hover{
+                box-shadow: $shadow_hover;
+            }
+            p{
+                line-height: 1.5;
+                margin-bottom: 40px;
+                width: 50%;
+                text-align: center;
+            }
+            .btn-group {
+                display: flex;
+                gap: 16px;
+                @media (max-width: 400px){
+                    flex-direction: column;
+                }
+                button:first-child{
+                    background: $theme_brown;
+                    color: $theme_white;
+                    svg path{
+                        fill: $theme_white;
+                    }
+                    &:hover{
+                        background: $theme_peach;
+                    }
+                }
+            }
+        }
+    }
 }
 
 div.card-image{
