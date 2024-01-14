@@ -2,13 +2,15 @@
 
 My rebuilt version of Jackie's Pet Store Pen built with React. 
 
+## video Of My Version:
+
+[![My Version U.I.](./designs/screenshot-mine.jpg)](https://youtu.be/9jzVJKGx7L8)
+
+- [Full video here](https://youtu.be/9jzVJKGx7L8)
+
 ## Screenshot Of The Original Design By: Jackie Zen
 
 ![Original Design](./designs/screenshot.jpg)
-
-## Screenshot Of My Version:
-
-![My Version U.I.](./designs/screenshot-mine.jpg)
 
 
 ## Features
@@ -145,10 +147,11 @@ Started On: 2024-01-09
 ### References:
 
 - [Inspiration - CodePen - Responsive Dashboard | Bento Style - Ecem Gokdogan](https://codepen.io/jackiezen/pen/oNJMOvZ?editors=0010)
+- [The Most Hearted Pens of 2023 - Codepen.io](https://codepen.io/2023/popular/pens/1)
 - [Fontawesome for the icons](https://fontawesome.com/icons/)
 - [Favicon Generator](https://www.favicon-generator.org/)
 - [Color Palette Selector - Coolors.co](https://coolors.co/001524-ff7d00-417b5a-cedfd9-78290f)
 - [Hex to RGB Converter](https://www.rgbtohex.net/hex-to-rgb/)
-- []()
+- [Video Review of the project - YouTube](https://youtu.be/9jzVJKGx7L8)
 - []()
 - []()
