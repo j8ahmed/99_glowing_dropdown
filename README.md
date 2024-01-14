@@ -1,5 +1,7 @@
 # Jackie's Pet Store - CodePen - The Most Hearted Pens of 2023
 
+My rebuilt version of Jackie's Pet Store Pen built with React. 
+
 ## Screenshot Of The Original Design By: Jackie Zen
 
 ![Original Design](./designs/screenshot.jpg)
@@ -13,7 +15,7 @@
 
 ```
 [x] Single page application built with React (SPA) - Landing page
-[x] Nav Menu (no links work right now - just a demo)
+[x] Nav Menu - sticky on width screens (no links work right now - just a demo)
     [x] Hover sub menus on full width screens
 [x] Responsive (Original was not completely responsive)
 [ ] 
