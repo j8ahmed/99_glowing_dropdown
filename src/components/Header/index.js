@@ -70,9 +70,9 @@ export default function Header() {
                             const {category, image, themeColor} = product;
                             return (
                                 <li key={i} className="sub-nav-item" id={`sup-${category}"`}>
-                                    <div className="card-image" style={{background: themeColor}}><img src={image} /></div>
+                                    <div className="card-image" style={{background: themeColor}}><img src={image} alt={category} /></div>
 
-                                    <a href="#">
+                                    <a href="#empty">
                                         <span>{category}</span>
 
                                         <span>
@@ -87,7 +87,7 @@ export default function Header() {
                         })
                         return (
                             <li key={item.name + i}>
-                                <a href="#">{item.name}</a>
+                                <a href="#empty">{item.name}</a>
 
                                 {
                                     !!subMenu.length

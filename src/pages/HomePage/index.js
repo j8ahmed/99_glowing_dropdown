@@ -93,11 +93,11 @@ export default function HomePage() {
                 <ul className="shop-pets">
                     {
                         products.map((product, i) => {
-                            const {category, image, fill, themeColor, textColor, subcategories} = product;
+                            const {category, image, fill, themeColor, subcategories} = product;
                             const subList = subcategories.map((cat, i) => {
                                 return (
                                     <li key={cat + i}>
-                                        <a href="#">{cat}</a>
+                                        <a href="#empty">{cat}</a>
                                     </li>
                                 )
                             });
@@ -139,7 +139,7 @@ export default function HomePage() {
                                 const {service, price} = item;
                                 return (
                                     <li key={i}>
-                                        <a href="#">{service}</a>
+                                        <a href="#empty">{service}</a>
                                         <span>$ {price}</span>
                                     </li>
                                 )
