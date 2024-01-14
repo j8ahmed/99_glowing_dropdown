@@ -39,11 +39,24 @@ const products = [
 const services = [
     {
         category: "grooming",
+        title: "Dog Grooming",
+        subtitle: "Tail-wagging transformations are our specialty.",
+        prices: [
+            {service: "Coat Care", price: 80},
+            {service: "Nail Care", price: 16},
+            {service: "Doggie Deluxe Special", price: 160},
+        ],
         image: "https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png",
         themeColor: "linear-gradient(45deg, #45828C 0%, #A7D4D8 100%)",
     },
     {
         category: "boarding",
+        title: "Dog Boarding",
+        subtitle: "Where fun and care never take a day off.",
+        prices: [
+            {service: "Doggie Daycare", price: 80},
+            {service: "Short Term Boarding", price: 80},
+        ],
         image: "https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png",
         themeColor: "linear-gradient(45deg, #EDDAA9 0%, #B87D93 100%)",
     },
@@ -114,41 +127,52 @@ export default function HomePage() {
                     }
                 </ul>
             </section>
-        {/*
-            <section>
+
+            <section id="services-section">
                 <h2>Our Services</h2>
 
-                <ul class="services">
-                    <li class="card-large card-dark card-wide" id="serv-groom">
-                        <div class="card-image"><img src="https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png"></div>
-                        <ul>
-                            Dog Grooming<span class="subtitle">Tail-wagging transformations are our specialty.</span>
-                            <li><a href="#">Coat Care</a><span>$80</span></li>
-                            <li><a href="#">Nail Care</a><span>$16</span></li>
-                            <li><a href="#">Doggie Deluxe Spa Day</a><span>$160</span></li>
-                            <button class="btn-filled-dark"><span class="material-symbols-outlined">
-                                    calendar_month
-                                </span>Book Now</button>
+                <ul className="services">
+                    {
+                        services.map((service, i) => {
+                            const {category, title, subtitle, prices, image, themeColor} = service;
+                            const priceList = prices.map((item, i) => {
+                                const {service, price} = item;
+                                return (
+                                    <li key={i}>
+                                        <a href="#">{service}</a>
+                                        <span>$ {price}</span>
+                                    </li>
+                                )
+                            })
+                            return (
+                                <li key={i} className="card-large card-dark card-wide" id={`serv-${category}`}>
+                                    <div className="card-image" style={{
+                                        background: themeColor
+                                    }}>
+                                        <img src={image} alt={category} />
+                                    </div>
 
-                        </ul>
+                                    <ul>
+                                        <span className="title">{title}</span>
 
+                                        <span className="subtitle">{subtitle}</span>
 
-                    </li>
-                    <li class="card-large card-dark card-wide" id="serv-board">
-                        <div class="card-image"><img src="https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png"></div>
-                        <ul>
-                            Dog Boarding<span class="subtitle">Where fun and care never take a day off.</span>
-                            <li><a href="#">Doggie Daycare</a><span>$80</span></li>
-                            <li><a href="#">Short Term Boarding</a><span>$80</span></li>
-                            <button class="btn-filled-dark"><span class="material-symbols-outlined">
-                                    calendar_month
-                                </span>Book Now</button>
-                        </ul>
+                                        {priceList}
 
-                    </li>
+                                        <button className="btn-outline-dark btn-hover-color">
+                                            <svg id="calendar-cart-icon" className="icon" xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                                <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/>
+                                            </svg>
+
+                                            <span>Book Now</span>
+                                        </button>
+                                    </ul>
+                                </li>
+                            )
+                        })
+                    }
                 </ul>
             </section>
-        */}
 
             <section id="locate">
 

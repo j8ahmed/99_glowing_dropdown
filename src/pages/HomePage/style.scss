@@ -76,6 +76,9 @@ main#homepage-container{
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-content: center;
             gap: 24px;
+            @media(max-width: 400px){
+                grid-template-columns: 1fr;
+            }
             @media(min-width: 1000px){
                 display: flex;
             }
@@ -99,18 +102,6 @@ main#homepage-container{
                 &:hover{
                     transform: scale(1.01);
                     box-shadow: $shadow_hover;
-                }
-                div.card-image{
-                    position: relative;
-                    aspect-ratio: 3/2;
-                    img{
-                        width: 80%;
-                        height: 80%;
-                        position: absolute;
-                        object-fit: contain;
-                        inset: 50% 50%;
-                        transform: translate(-50%, -50%);
-                    }
                 }
                 ul{
                     padding: 0 40px 40px;
@@ -140,6 +131,103 @@ main#homepage-container{
                 }
             }
         }
+    }
+    section#services-section{
+        ul.services{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            @media(max-width: 400px){
+                grid-template-columns: 1fr;
+            }
+            li.card-wide{
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                border-radius: 16px;
+                background: $theme_white;
+                box-shadow: $shadow;
+                color: $theme_brown;
+                cursor: pointer;
+                transition: $transition;
+                &:hover{
+                    box-shadow: $shadow_hover;
+                    transform: scale(1.01);
+                }
+                @media(max-width: 400px){
+                    flex-direction: column;
+                }
+                & > *{
+                    flex: 1;
+                }
+                div.card-image{
+                    @media(min-width: 400px){
+                        width: 50%;
+                    }
+                }
+                a{
+                    text-decoration: none;
+                    color: $theme_brown;
+                }
+                ul{
+                    padding: 40px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    text-transform: capitalize;
+                    text-align: left;
+                    span.subtitle{
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 1.4;
+                        margin-bottom: 24px;
+                    }
+                    li{
+                        width: 100%;
+                        display: flex;
+                        gap: 24px;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        line-height: 32px;
+                        list-style: none;
+                        &:last-of-type{
+                            margin-bottom: 40px;
+                        }
+                        span{
+                            white-space: nowrap;
+                        }
+                        a{
+                            color: inherit;
+                            text-decoration: none;
+                        }
+                    }
+                    button{
+                        margin-top: auto;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+div.card-image{
+    position: relative;
+    aspect-ratio: 3/2;
+    img{
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        object-fit: contain;
+        inset: 50% 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
