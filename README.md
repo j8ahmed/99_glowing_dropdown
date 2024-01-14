@@ -146,6 +146,7 @@ Started On: 2024-01-09
 - [Fontawesome for the icons](https://fontawesome.com/icons/)
 - [Favicon Generator](https://www.favicon-generator.org/)
 - [Color Palette Selector - Coolors.co](https://coolors.co/001524-ff7d00-417b5a-cedfd9-78290f)
+- [Hex to RGB Converter](https://www.rgbtohex.net/hex-to-rgb/)
 - []()
 - []()
 - []()
