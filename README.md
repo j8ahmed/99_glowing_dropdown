@@ -16,8 +16,8 @@ My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?edit
 ## Features
 
 ```
-[ ] 
-[ ] 
+[ ] Glowing hover animation
+[ ] Accessibility
 [ ] 
 [ ] 
 [ ] 
