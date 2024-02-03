@@ -1,12 +1,12 @@
-# Jackie's Pet Store - CodePen - The Most Hearted Pens of 2023
+# Pen 99 - Glowing Dropdown - The Most Hearted Pens of 2023
 
-My rebuilt version of Jackie's Pet Store Pen built with React. 
+My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?editors=0100) built with React. 
 
 ## video Of My Version:
 
-[![My Version U.I.](./designs/screenshot-mine.jpg)](https://youtu.be/9jzVJKGx7L8)
+[![My Version U.I.](./designs/screenshot-mine.jpg)]()
 
-- [Full video here](https://youtu.be/9jzVJKGx7L8)
+- [Full video here]()
 
 ## Screenshot Of The Original Design By: Jackie Zen
 
@@ -16,10 +16,9 @@ My rebuilt version of Jackie's Pet Store Pen built with React.
 ## Features
 
 ```
-[x] Single page application built with React (SPA) - Landing page
-[x] Nav Menu - sticky on width screens (no links work right now - just a demo)
-    [x] Hover sub menus on full width screens
-[x] Responsive (Original was not completely responsive)
+[ ] 
+[ ] 
+[ ] 
 [ ] 
 [ ] 
 
@@ -27,42 +26,6 @@ My rebuilt version of Jackie's Pet Store Pen built with React.
 
 ## Bugs / Fixes
 
-### Using Logical `AND` (`&&`) and `OR` (`||`) in React Rendering
-
-I was running into an issue where values that should be truthy were coming up falsey and vice versa. Looked into it and found two useful pieces of information. 
-
-1. React renders any value with a type of `string` or `number` regardless of whether it's falsey. So in a scenario when we want to use the length of an array as the first value in an `AND` statement, React would still render a length of `0` when the array is empty. Therefore, we need to explicitly cast the array length value as a boolean value using a double bang (`!!`), the `Boolean(value)` constructor, or use a ternary operator instead of a Logical `AND`. React does not render values of type `boolean`, `null`, or `undefined`. - [Reference Stack Overflow](https://stackoverflow.com/questions/53048037/react-showing-0-instead-of-nothing-with-short-circuit-conditional-component)
-
-2. JavaScript does not automatically convert "truthy" values to `true` in a `==` comparison. For example, in JavaScript an empty array (`[]`) is considered a "truthy" value but a statement like `[] == true` will return `false`. You need to explicitly cast the array as a boolean before running the comparison operation to get the correct value - for example:
-
-```js
-console.log(Boolean([]) == true)        // Output: true
-console.log(!![] == true)               // Output: true
-```
-
-- ["falsey" and "truthy" values in JavaScript - MDN Docs](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
-- [2 Ways to Convert Values to Boolean in JavaScript - article](https://www.samanthaming.com/tidbits/19-2-ways-to-convert-to-boolean/) 
-- [Consider When and Where logical operators should be used to render React components - Stack Overflow](https://stackoverflow.com/questions/65713434/react-render-logical-vs-ternary-operator)
-
-### Images Were Resizing Perfectly Without a Set Height
-
-This is not necessarily a bug but rather something that was interesting to note from the original code. On the "Shop Products" there are cards with images representing each cateogory of pet products. On large-width screens The cards are in a `flex-container`. The images are perfectly contained to fit in the same size container. This is accomplished through the use of three CSSS properties: 
-
-1. [`flex: 1`- MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
-2. [`aspect-ratio: 3/2` - MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
-3. [`object-fit: contain` - MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
-
-By setting the `flex: 1` property value on each flex-item (i.e. card) in the `flex-container` we are actually setting the `flex-grow` property from the default of `0` to `1`. This makes it so that each `flex-item` (i.e. card) has the same width and height because they grow and fill up the space of the `flex-container` at an equal rate. 
-
-When each card has the same height and width the `aspect-ratio` property will size the image container the same on each card.
-
-Finally, with each image container being the same, regardless of the differences in image size, each one will automatically be resized to fit within the container using the `object-fit: contain` property value. This results in the desired look of equal card images.
-
-It took a while for me to figure out what I was missing since I normally don't use the `aspect-ratio` property and I just set a height value manually. This was a frustrating to breakdown but beneficial to go over. Hence the notes on this. lol
-
-### Use `margin-top: auto` to push the Last element to the bottom of the Container
-
-An interesting use case for `margin: auto`. This was used to push the last item (a button) in the card to the bottom regardless of how many bullet points were above. This is an interesting way to accomplish this as in the past I would use `align-items: space-between` or in a grid layout, `align-self: flex-end`. I will keep this approach in my back pocket as it might be useful in the future.
 
 --- 
 
@@ -142,16 +105,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Meta Data
 
-Started On: 2024-01-09
+Started On: 2024-02-02
 
 ### References:
 
-- [Inspiration - CodePen - Responsive Dashboard | Bento Style - Ecem Gokdogan](https://codepen.io/jackiezen/pen/oNJMOvZ?editors=0010)
+- [Inspiration - CodePen](https://codepen.io/LukyVj/pen/ZEMrgMr?editors=0100)
 - [The Most Hearted Pens of 2023 - Codepen.io](https://codepen.io/2023/popular/pens/1)
 - [Fontawesome for the icons](https://fontawesome.com/icons/)
 - [Favicon Generator](https://www.favicon-generator.org/)
 - [Color Palette Selector - Coolors.co](https://coolors.co/001524-ff7d00-417b5a-cedfd9-78290f)
 - [Hex to RGB Converter](https://www.rgbtohex.net/hex-to-rgb/)
-- [Video Review of the project - YouTube](https://youtu.be/9jzVJKGx7L8)
+- [Video Review of the project - YouTube]()
 - []()
 - []()
