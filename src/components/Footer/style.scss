@@ -3,12 +3,56 @@
 @use "../../assets/theme" as *;
 
 footer#page-footer{
+    --background-color: hsl(222deg 17% 14%);
+    --dark-color: hsl(227deg 37% 3%);
+    --light-color: hsl(211deg 23% 51%);
+    --accent-color-hue: 219;
+    --accent-color: hsl(calc(var(--accent-color-hue)*1deg) 100% 58%);
+    --radial-bg-color: var(--dark-color);
+    --max-height: 0;
+    --bg-y: 0;
+    --bg-x: 0;
+    --item-y: 20;
+    --item-opacity: 0;
+
+    /* Misc */
+    --_inner-radius: 10;
+    --_inner-padding: 6;
+    --inner-radius: calc(var(--_inner-radius) * 1px);
+    --inner-padding: calc(var(--_inner-padding) * 1px);
+    --outer-radius: calc(calc(var(--_inner-radius) + var(--_inner-padding)) * 1px);
+    --debug: 0;
+    --a11y: 0;
+    --outline-color: hsla(calc(var(--accent-color-hue)*1deg) 100% 58% / calc(var(--a11y)*100%));
+
     position: absolute;
+    z-index: 1;
     bottom: 0;
     padding: 16px 32px;
-    background: rgb(20,20,20);
+    background: 
+        var(--dark-color)
+        radial-gradient(
+            ellipse 70% 70%
+            at calc(var(--bg-x)*1%) calc(var(--bg-y)*1%),
+            var(--radial-bg-color) 0%,
+            var(--dark-color) 100%
+        );
     color: $theme_white;
-    border-top-right-radius: 16px;
+    border-top-right-radius: var(--outer-radius);
+    transition: background .3s ease, --bg-y .4 ease, --bg-x .4s ease;
+    &:hover{
+        animation: footerglow 1.2s ease-in-out;
+    }
+    &:before {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        width: calc(100% - 1px);
+        height: calc(100% - 1px);
+        inset: 1px 1px auto auto;
+        background: var(--dark-color);
+        border-top-right-radius: var(--outer-radius);
+    }
     div.links-container{
         display: flex;
         gap: 32px;
@@ -42,4 +86,27 @@ footer#page-footer{
             }
         }
     }
+}
+
+@keyframes footerglow {
+  from {
+    --radial-bg-color: var(--accent-color);
+    --bg-x: 0;
+    --bg-y: 0;
+  }
+  25% {
+    --radial-bg-color: rgb(0, 175, 175);
+    --bg-x: 100;
+    --bg-y: 0;
+  }
+  50% {
+    --radial-bg-color: rgb(0, 175, 175);
+    --bg-x: 100;
+    --bg-y: 60;
+  }
+  to {
+    --radial-bg-color: var(--dark-color);
+    --bg-x: 100;
+    --bg-y: 120;
+  }
 }
