@@ -3,9 +3,12 @@
 @use "../../assets/theme" as *;
 
 footer#page-footer{
-    padding: 16px;
-    background: $theme_brown;
+    position: absolute;
+    bottom: 0;
+    padding: 16px 32px;
+    background: rgb(20,20,20);
     color: $theme_white;
+    border-top-right-radius: 16px;
     div.links-container{
         display: flex;
         gap: 32px;

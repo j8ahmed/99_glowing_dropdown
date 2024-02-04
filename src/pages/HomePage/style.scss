@@ -12,56 +12,56 @@
 }
 
 @layer properties {
-  @property --max-height {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 0;
-  }
-   @property --bg-x {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 50;
-  }
-   @property --bg-y {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: -200;
-  }
-  @property --scale {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 1;
-  }
-  @property --accent-color-hue {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 0;
-  }
-  @property --accent-color-hue {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 0;
-  }
-  @property --item-y {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 0;
-  }
-  @property --item-opacity {
-    syntax:'<number>';
-    inherits: true;
-    initial-value: 0;
-  }
-  @property --accent-color {
-    syntax:'<color>';
-    inherits: true;
-    initial-value: hsl(calc(var(--accent-color-hue)*1deg) 100% 58%);
-  }
-  @property --radial-bg-color {
-    syntax:'<color>';
-    inherits: true;
-    initial-value: black;
-  }
+    @property --max-height {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 0;
+    }
+    @property --bg-x {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 50;
+    }
+    @property --bg-y {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: -200;
+    }
+    @property --scale {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 1;
+    }
+    @property --accent-color-hue {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 0;
+    }
+    @property --accent-color-hue {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 0;
+    }
+    @property --item-y {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 0;
+    }
+    @property --item-opacity {
+        syntax:'<number>';
+        inherits: true;
+        initial-value: 0;
+    }
+    @property --accent-color {
+        syntax:'<color>';
+        inherits: true;
+        initial-value: hsl(calc(var(--accent-color-hue)*1deg) 100% 58%);
+    }
+    @property --radial-bg-color {
+        syntax:'<color>';
+        inherits: true;
+        initial-value: black;
+    }
 }
 
 
@@ -79,8 +79,9 @@ main#homepage-container {
     --accent-color: hsl(calc(var(--accent-color-hue)*1deg) 100% 58%);
     --radial-bg-color: var(--dark-color);
     --max-height: 0;
+    --container-width: 300;
     --bg-y: -50;
-    --bg-x: 200;
+    --bg-x: var(--container-width);
     --item-y: 20;
     --item-opacity: 0;
 
@@ -94,18 +95,10 @@ main#homepage-container {
     --a11y: 0;
     --outline-color: hsla(calc(var(--accent-color-hue)*1deg) 100% 58% / calc(var(--a11y)*100%));
     min-height: 80vh;
-    font-family: "Mona sans", sans-serif;
     max-width: 800px;
-    margin: 16em auto;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 32px;
-    place-items: center;
-    align-items: start;
-    @media (min-width: 760px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    padding: 0 16px;
+    margin: 0 auto;
+    font-family: "Mona sans", sans-serif;
     header {
         color: white;
         & h3 {
@@ -113,8 +106,130 @@ main#homepage-container {
         }
     }
     div.selection-container {
+        position: relative;
+        z-index: 1;
+        width: calc(var(--container-width)*1px);
+        padding: var(--inner-padding);
+        background: 
+            var(--dark-color)
+            radial-gradient(
+                ellipse 70% 70%
+                at calc(var(--bg-x)*1%) calc(var(--bg-y)*1%),
+                var(--radial-bg-color) 0%,
+                var(--dark-color) 100%
+            );
+        border-radius: var(--outer-radius);
+        color: $theme_white;
+        transition: background .3s ease, --bg-y .4 ease, --bg-x .4s ease;
+        &:hover{
+            animation: glow 1.2s ease-in-out;
+        }
+        //:focus-within or :has(button:focus)
+        &:focus-within {
+            outline: 1px dashed var(--outline-color);
+        }
+        &:hover > .options-container,
+        &:has(button:focus) > .options-container,
+        &:focus-within > .options-container {
+            // Manually set height of div for now
+            height: calc(var(--max-height)*1px);
+            --item-y: 0;
+            --item-opacity: 1;
+        }
+        &:before {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            top: 1px;
+            left: 1px;
+            background: var(--dark-color);
+            border-radius: var(--outer-radius);
+        }
+        button.current-selection {
+            position: relative;
+            width: 100%;
+            padding: var(--inner-padding);
+            padding-left: 16px;
+            background: var(--background-color);
+            border-radius: var(--inner-radius);
+            border: 0;
+            color: $theme_white;
+            text-align: left;
+            text-transform: capitalize;
+            cursor: pointer;
+            box-shadow: inset 0 2px 1px -1px rgb(255 255 255 / 10%);
+            transform: scale(var(--scale));
+            animation-duration: .2s;
+            animation-timing-function: cubic-bezier(.66,-0.82,.33,1.73);
+            &:focus {
+                outline: 1px solid var(--accent-color);
+                outline-offset: -1px;
+            }
+            // Button icon
+            &:after {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 1em;
+                inset: 0 8px auto auto;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='58' height='98' fill='none'%3E%3Cpath fill='hsl(211deg 23% 51%)' d='M25.536 6c1.54-2.667 5.388-2.667 6.928 0l18.187 31.5c1.54 2.667-.385 6-3.465 6H10.814c-3.079 0-5.003-3.333-3.464-6L25.536 6ZM25.536 92c1.54 2.667 5.388 2.667 6.928 0l18.187-31.5c1.54-2.667-.385-6-3.465-6H10.814c-3.079 0-5.003 3.333-3.464 6L25.536 92Z'/%3E%3C/svg%3E") no-repeat center center / 0.6em;
+            }
+        }
+        div.options-container {
+            height: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: --max-height .2s ease;
+            transition: height .3s ease-in-out;
+            .option-item {
+                position: relative;
+                margin-top: 16px;
+                padding: calc(var(--inner-padding)*1.6) calc(var(--inner-padding)*1.2);
+                cursor: pointer;
+                border-radius: var(--inner-radius);
+                color: var(--light-color);
+                color: white;
+                text-decoration: none;
+                text-transform: capitalize;
+                span {
+                    position: relative;
+                    display: block;
+                    transform: translateY(calc(var(--item-y)*1px));
+                    //opacity: var(--item-opacity);
+                    transition: --item-y .2s ease .1s, --item-opacity .2s .1s;
+                }
+                &:nth-child(1) span {
+                    transition-delay: .1s;
+                }
+                &:nth-child(2) span {
+                    transition-delay: .15s;
+                }
+                &:nth-child(3) span {
+                    transition-delay: .2s;
+                }
+                &:focus {
+                    outline: 1px solid var(--outline-color);
+                    outline-offset: -1px;
+                }
+                &:hover,
+                &:focus{
+                    color: var(--accent-color);
+                }
+            }
+        }
+    }
+}
+
+/*
+
+    div.selection-container {
         color: white;
-        background: var(--dark-color) radial-gradient(ellipse 70% 70% at calc(var(--bg-x)*1%) calc(var(--bg-y)*1%), var(--radial-bg-color) 0%, var(--dark-color) 100%);
+        background: 
+            var(--dark-color)
+            radial-gradient(ellipse 70% 70% at calc(var(--bg-x)*1%) calc(var(--bg-y)*1%), var(--radial-bg-color) 0%, var(--dark-color) 100%);
         padding: var(--inner-padding);
         border-radius: var(--outer-radius);
         position: relative;
@@ -176,14 +291,14 @@ main#homepage-container {
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            /* transition: --max-height .2s ease; ?? not working ?? */
+            //transition: --max-height .2s ease; ?? not working ??
             transition: height .3s ease-in-out;
             & > a.option-item {
                 display: block;
                 padding: calc(var(--inner-padding)*1.6) calc(var(--inner-padding)*1.2);
                 color: var(--light-color);
                 cursor: pointer;
-                margin-top: 8px;
+                margin-top: 16px;
                 text-decoration: none;
                 border-radius: var(--inner-radius);
                 position: relative;
@@ -214,7 +329,7 @@ main#homepage-container {
                 }
             }
         }
-        /* :focus-within or :has(button:focus) */
+        //:focus-within or :has(button:focus)
         &:focus-within {
             outline: 1px dashed var(--outline-color);
         }
@@ -222,12 +337,13 @@ main#homepage-container {
         &:has(button:focus) > div,
         &:focus-within > div {
             // Manually set height of div for now
-            height: calc(var(--max-height)*1px);
+            //height: calc(var(--max-height)*1px);
             --item-y: 0;
             --item-opacity: 1;
         }
     }
-}
+
+*/
 
 
 

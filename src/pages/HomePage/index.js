@@ -12,23 +12,24 @@ export default function HomePage() {
         setOption(e.target.innerText.toLowerCase())
     }
 
-    const getTotalElementHeight = (e) => {
+    const getTotalElementHeight = (e, includeMargin = true) => {
         const styles = window.getComputedStyle(e);
         const box = e.getBoundingClientRect();        // Get height of element including padding
-        const margin = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom) || 0;
+        const margin = !includeMargin ? 0 : parseFloat(styles.marginTop) + parseFloat(styles.marginBottom) || 0;
         return box.height + margin;
     }
 
     useEffect(() => {
         if(selectionContainer.current === null) return
 
-        // Calculate and set the height of the dropdown for :hover animation
+        // Calculate and set the height of the dropdown (".options-container") for animations once content fully loaded
         // This allows for a smooth expansion animation
-        const container = selectionContainer.current
-        const optionElements = Array.from(container.querySelectorAll(".option-item"))
-        
-        const maxHeight = optionElements.reduce((acc, curr) => acc + getTotalElementHeight(curr), 0)
-        container.style.setProperty("--max-height", maxHeight)
+        document.fonts.ready.then(() => {
+            const container = selectionContainer.current
+            const optionElements = Array.from(container.querySelectorAll(".option-item"))
+            const maxHeight = optionElements.reduce((acc, curr) => acc + getTotalElementHeight(curr), 0);
+            container.style.setProperty("--max-height", maxHeight)
+        })
     }, [])
 
     return (

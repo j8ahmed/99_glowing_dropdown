@@ -26,6 +26,23 @@ My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?edit
 
 ## Bugs / Fixes
 
+### Initial Loads have Incorrect calculated heights
+
+Turns out that the delayed loading of the custom font is skewing the calculated height to be shorted than needed. The height calculation is taken before the custom font is loaded so when the custom font (which is bigger) than the default is loaded our measurement comes up short and some elements overflow.
+
+The solution is to use the `document.fonts.ready` callback in our `useEffect`:
+
+```js
+React.useEffect(() => {
+  document.fonts.ready.then(function () {
+    console.log('Fonts currently being used on the page are now loaded.');
+    // Calculate height now
+  });  
+}, []);
+```
+
+- [Solution Reference - StackOverflow](https://stackoverflow.com/questions/67275928/react-inaccurately-calculating-the-height-of-a-div-on-first-page-load)
+
 
 --- 
 
