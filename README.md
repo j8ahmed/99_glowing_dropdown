@@ -18,7 +18,7 @@ My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?edit
 ```
 [ ] Glowing hover animation
 [ ] Accessibility
-[ ] 
+[ ] Calculate height of the options box based on the number of elements using javascript
 [ ] 
 [ ] 
 
