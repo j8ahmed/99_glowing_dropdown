@@ -13,15 +13,16 @@ My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?edit
 ![Original Design](./designs/screenshot.jpg)
 
 
-## Features
+## Key Features
 
 ```
-[ ] Glowing hover animation
-[ ] Accessibility
-[ ] Calculate height of the options box based on the number of elements using javascript
+[x] Glowing border animation
+[x] Dropdown growth animation 
+    [x] Calculate height of the options box based on the number of elements using javascript
+[x] Accessibility
+[x] Use of CSS Houdini APIs 
+[x] Rounded Borders Calculation in nested elements
 [ ] 
-[ ] 
-
 ```
 
 ## Bugs / Fixes
