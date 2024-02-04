@@ -6,9 +6,16 @@ const options = ["components", "artboards", "pages", "templates"];
 export default function HomePage() {
     const [option, setOption] = useState(options[0]);
     const selectionContainer = useRef(null);
+    const btn = useRef(null);
 
     const handleClick = (e) => {
         e.preventDefault();
+
+        const button = btn.current
+        button.style.animationName="popOut";
+        button.addEventListener("animationend", () => {
+          button.style.animationName="none"
+        });
         setOption(e.target.innerText.toLowerCase())
     }
 
@@ -34,31 +41,33 @@ export default function HomePage() {
 
     return (
         <main id="homepage-container">
-            <header>
-                <h3>Default:</h3>
-            </header>
+            <div>
+                <header>
+                    <h3>Default:</h3>
+                </header>
 
-            <div ref={selectionContainer} className="selection-container" tabIndex="0" role="button">
-                <button className="current-selection" tabIndex="0">{option}</button>
+                <div ref={selectionContainer} className="selection-container" tabIndex="0" role="button">
+                    <button ref={btn} className="current-selection" tabIndex="0">{option}</button>
 
-                <div className="options-container">
-                    {
-                        options.map((opt, i) => {
-                            return (
-                                opt !== option &&
-                                <a 
-                                    key={i}
-                                    role="button"
-                                    className="option-item"
-                                    tabIndex="0"
-                                    href="#"
-                                    onClick={handleClick}
-                                >
-                                    <span>{opt}</span>
-                                </a>
-                            )
-                        })
-                    }
+                    <div className="options-container">
+                        {
+                            options.map((opt, i) => {
+                                return (
+                                    opt !== option &&
+                                    <a 
+                                        key={i}
+                                        role="button"
+                                        className="option-item"
+                                        tabIndex="0"
+                                        href="/#"
+                                        onClick={handleClick}
+                                    >
+                                        <span>{opt}</span>
+                                    </a>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </main>
