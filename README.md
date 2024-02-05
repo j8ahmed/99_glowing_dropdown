@@ -4,7 +4,7 @@ My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?edit
 
 ## video Of My Version:
 
-[![My Version U.I.](./designs/screenshot-mine.jpg)]()
+[![My Version U.I.](./designs/screenshot-mine.jpg)](https://youtu.be/_npbRSXYD0Q)
 
 - [Full video here]()
 
@@ -133,6 +133,6 @@ Started On: 2024-02-02
 - [Favicon Generator](https://www.favicon-generator.org/)
 - [Color Palette Selector - Coolors.co](https://coolors.co/001524-ff7d00-417b5a-cedfd9-78290f)
 - [Hex to RGB Converter](https://www.rgbtohex.net/hex-to-rgb/)
-- [Video Review of the project - YouTube]()
+- [Video Review of the project - YouTube](https://youtu.be/_npbRSXYD0Q)
 - []()
 - []()
