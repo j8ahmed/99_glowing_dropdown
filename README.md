@@ -8,7 +8,7 @@ My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?edit
 
 - [Full video here]()
 
-## Screenshot Of The Original Design By: Jackie Zen
+## Screenshot Of The Original Design
 
 ![Original Design](./designs/screenshot.jpg)
 
