@@ -14,7 +14,7 @@ export default function HomePage() {
         const button = btn.current
         button.style.animationName="popOut";
         button.addEventListener("animationend", () => {
-          button.style.animationName="none"
+            button.style.animationName="none"
         });
         setOption(e.target.innerText.toLowerCase())
     }
