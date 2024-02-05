@@ -1,6 +1,6 @@
 # Pen 99 - Glowing Dropdown - The Most Hearted Pens of 2023
 
-My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?editors=0100) built with React. 
+My rebuilt version of [LuckyVJ's Pen](https://codepen.io/LukyVj/pen/ZEMrgMr?editors=0100) using React. 
 
 ## video Of My Version:
 
